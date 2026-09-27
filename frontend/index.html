@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nethra | Personal Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="navbar">
+    <a href="#home" class="logo">Nethra</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Hi, I'm <span>Nethra</span> 👋</h1>
+    <p>Computer Science Engineering Student | Aspiring Full Stack Developer</p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="#contact" class="btn btn-outline">Contact Me</a>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>
+      I am a Computer Science Engineering student interested in
+      programming, web development and artificial intelligence.
+      I enjoy building useful projects and learning new technologies.
+      I am currently developing my skills in full-stack development.
+    </p>
+  </section>
+
+  <section id="skills" class="section alt">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+      <span>Python</span>
+      <span>Java</span>
+      <span>Node.js</span>
+      <span>Express.js</span>
+      <span>MongoDB</span>
+      <span>Git &amp; GitHub</span>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div id="project-list" class="project-grid">
+
+      <div class="card">
+        <h3>RentMatch AI</h3>
+        <p>
+          RentMatch AI is a smart rental matching system designed
+          to help students and professionals find suitable rental
+          properties based on their budget, location and requirements.
+        </p>
+        <p class="tech">HTML, CSS, JavaScript, AI</p>
+        <a href="#" target="_blank">GitHub</a>
+        <a href="#" target="_blank">Live Demo</a>
+      </div>
+
+      <div class="card">
+        <h3>Farmer Query System</h3>
+        <p>
+          An application that helps farmers ask queries using
+          text, voice and image-based inputs.
+        </p>
+        <p class="tech">React Native, Firebase</p>
+        <a href="#" target="_blank">GitHub</a>
+        <a href="#" target="_blank">Live Demo</a>
+      </div>
+
+      <div class="card">
+        <h3>SkillPulse</h3>
+        <p>
+          A project designed to help users understand and improve
+          their skills through a simple digital platform.
+        </p>
+        <p class="tech">HTML, CSS, JavaScript</p>
+        <a href="https://github.com/nethrakalimuthu1510-ship-it" target="_blank">GitHub</a>
+        <a href="#" target="_blank">Live Demo</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="section alt">
+    <h2>Contact Me</h2>
+
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+      <p id="form-status"></p>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 Nethra. All rights reserved.</p>
+    <p>
+      <a href="https://github.com/" target="_blank">GitHub</a>
+      |<a href="https://www.linkedin.com/in/nethra-k-04545a385" target="_blank">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
