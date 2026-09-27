@@ -1,71 +1,50 @@
-// ================================
-// Portfolio JavaScript
-// ================================
-
 // Contact Form
 const contactForm = document.getElementById("contact-form");
 const formStatus = document.getElementById("form-status");
 
-if (contactForm) {
-    contactForm.addEventListener("submit", async function (event) {
+contactForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-        // Stop page from refreshing
-        event.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-        // Get form values
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
+    if (!name || !email || !message) {
+        formStatus.textContent = "Please fill all fields.";
+        return;
+    }
 
-        // Check fields
-        if (!name || !email || !message) {
-            formStatus.textContent = "Please fill all the fields.";
-            return;
-        }
+    formStatus.textContent = "Sending...";
 
-        // Show sending message
-        formStatus.textContent = "Sending message...";
-
-        try {
-
-            // Send data to Node.js backend
-            const response = await fetch("http://localhost:5000/contact", {
+    try {
+        const response = await fetch(
+            "https://personal-portfolio-backend-1x7d.onrender.com/contact",
+            {
                 method: "POST",
-
                 headers: {
                     "Content-Type": "application/json"
                 },
-
                 body: JSON.stringify({
                     name: name,
                     email: email,
                     message: message
                 })
-            });
-
-            // Convert backend response to JSON
-            const data = await response.json();
-
-            // Check backend response
-            if (response.ok && data.success) {
-
-                formStatus.textContent = data.message;
-
-                // Clear form after successful submission
-                contactForm.reset();
-
-            } else {
-
-                formStatus.textContent =
-                    data.message || "Failed to save message.";
             }
+        );
 
-        } catch (error) {
+        const data = await response.json();
 
-            console.error("Backend connection error:", error);
-
+        if (response.ok) {
+            formStatus.textContent = "Message saved successfully!";
+            contactForm.reset();
+        } else {
             formStatus.textContent =
-                "Unable to connect to server. Make sure backend is running.";
+                data.message || "Failed to save message.";
         }
-    });
-}
+
+    } catch (error) {
+        console.error(error);
+        formStatus.textContent =
+            "Unable to connect to server.";
+    }
+});
